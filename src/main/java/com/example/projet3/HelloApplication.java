@@ -2,16 +2,16 @@ package com.example.projet3;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
 
-    // Create a new GridPane and set the padding, horizontal gap and vertical gap
+    // Create a new GridPane and set the padding, horizontal gap and vertical gap between images
     @Override
     public void start(Stage stage) {
         GridPane gridPane = new GridPane();
@@ -35,6 +35,16 @@ public class HelloApplication extends Application {
                 imageView.setFitHeight(90);
                 button.setGraphic(imageView);
 
+                // Add the action to the button that changes the current image of the button with another one
+                button.setOnAction(event -> {
+                    String newUrl = String.format("C:\\Projet3\\patate.jpg");
+                    Image newImage = new Image(newUrl);
+                    ImageView newImageView = new ImageView(newImage);
+                    newImageView.setFitWidth(90);
+                    newImageView.setFitHeight(90);
+                    button.setGraphic(newImageView);
+                });
+
                 // Add the button to the GridPane at the current row and column
                 gridPane.add(button, i, y);
             }
@@ -42,7 +52,7 @@ public class HelloApplication extends Application {
 
         // Create a new Scene with the GridPane and set it to the stage
         Scene scene = new Scene(gridPane);
-        stage.setTitle("Jeu de la memoire");
+        stage.setTitle("Where is the potato (or patato)");
         stage.setScene(scene);
 
         stage.show();
