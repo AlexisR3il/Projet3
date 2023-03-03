@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
         for (int i = 0; i < 4; i++) {
             for (int y = 0; y < 4; y++) {
 
-                // Create a new button and set its preferred size
+                // Create a new button and set its size
                 Button button = new Button();
                 button.setPrefSize(90, 90);
 
@@ -42,9 +42,9 @@ public class HelloApplication extends Application {
 
         // Create a new Scene with the GridPane and set it to the stage
         Scene scene = new Scene(gridPane);
-        stage.setTitle("Cartes");
+        stage.setTitle("Jeu de la memoire");
         stage.setScene(scene);
-        
+
         stage.show();
     }
 
